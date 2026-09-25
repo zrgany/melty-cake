@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  body {
+    @apply bg-cream text-ink font-body antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+  }
+  ::selection {
+    @apply bg-caramel/25;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-caramel px-6 py-3 text-sm font-semibold text-cream transition-colors hover:bg-caramel-dark active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink/15 bg-transparent px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-ink/5 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-1.5 text-sm font-medium text-ink-2 transition-colors hover:text-caramel-dark;
+  }
+  .input-field {
+    @apply w-full rounded-2xl border border-line bg-white px-4 py-3 text-sm text-ink placeholder:text-ink-2/40 focus:border-caramel focus:outline-none focus:ring-2 focus:ring-caramel/20;
+  }
+  .card-surface {
+    @apply rounded-card border border-line bg-white;
+  }
+  .chip {
+    @apply inline-flex items-center rounded-full border border-line bg-white px-4 py-2 text-sm font-medium text-ink-2 transition-colors;
+  }
+  .chip-active {
+    @apply border-caramel bg-caramel text-cream;
+  }
+}
+
+/* يحترم مساحة الشاشة الآمنة أسفل الهاتف (زر الهوم في iPhone وغيره) */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(58, 36, 24, 0.2);
+  border-radius: 999px;
+}
